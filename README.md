@@ -5,6 +5,8 @@ problemas. Nas linguagens e tecnologias que se sentir mais confortável, e tamb�
 com seu perfil aceite pelo menos 1 dos desafios propostos. Caso sinta­se à vontade em fazer
 os dois, também será apreciado.
 
+---
+
 ### Desafio 1
 
 Construir uma aplicação na linguagem que preferir e achar mais prático. Neste desafio
@@ -12,6 +14,14 @@ não é preciso desenvolver um layout robusto, pode ser algo simples. A aplicaç
 input de texto e um botão busca que ao ser clicado realizará uma busca de produto através do
 consumo da mesma api usada pelo autocomplete do site https://store.omelete.com.br. Você
 deverá analisar a resposta da API e construir uma view com a lista dos produtos retornados.
+
+**Instalação das dependências**
+`npm install`
+
+**Iniciando o projeto no Browser**
+`npm start`
+
+---
 
 ### Desafio 2
 
