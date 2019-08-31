@@ -15,11 +15,15 @@ input de texto e um botão busca que ao ser clicado realizará uma busca de prod
 consumo da mesma api usada pelo autocomplete do site https://store.omelete.com.br. Você
 deverá analisar a resposta da API e construir uma view com a lista dos produtos retornados.
 
+### Rodando o projeto
+
 **Instalação das dependências**
-`npm install`
+
+```npm install```
 
 **Iniciando o projeto no Browser**
-`npm start`
+
+```npm start```
 
 ---
 
@@ -31,3 +35,5 @@ CSS, JS, etc. Você poderá pedir qualquer tipo de recurso extra para o site (ex
 entre outras coisas que achar necessário).
 
 Link: https://www.figma.com/file/GTEyrXtVtgSDeiocLk7KzCFf/layout­teste­avaliacao
+
+### Este desafio ainda não foi iniciado.
