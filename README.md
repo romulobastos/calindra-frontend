@@ -15,7 +15,13 @@ input de texto e um botão busca que ao ser clicado realizará uma busca de prod
 consumo da mesma api usada pelo autocomplete do site https://store.omelete.com.br. Você
 deverá analisar a resposta da API e construir uma view com a lista dos produtos retornados.
 
-### Rodando o projeto
+### Verão online
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bf3092bb-50d9-46d4-9bb3-4d5076a1932b/deploy-status)](https://app.netlify.com/sites/calindrafrontend/deploys)
+
+https://calindrafrontend.netlify.com/index.html
+
+### Rodando o projeto localmente
 
 **Instalação das dependências**
 
