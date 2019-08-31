@@ -7,7 +7,7 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 				<h1>Calindra Tech</h1>
-				<h2>Desafio 1</h2>
+				<h2>Front-end // Desafio 1</h2>
 			</header>
 
 			<section className="App-main">

@@ -14,40 +14,42 @@ export default class AutoSearch extends Component {
 
 	loadProducts = async (text = 'can') => {
 		
-		const response = await api.get(`/autocomplete/${text}`,
-		// {
-		// 	headers: {
-		// 		'Access-Control-Allow-Origin': '*',
-		// 	}
-		// 	,
-		// 	proxy: {
-		// 		host: 'https://store.omelete.com.br/',
-		// 		port: 3128
-		// 	}
-		// }
-		);
-		console.log(response.data);
+		const response = await api.get(`/autocomplete/${text}`);
+		const { items } = response.data;
+		console.log(items);
 		// const { docs, ...productInfo } = response.data;
 		
 		this.setState({
-			products: response.data,
-			// productInfo,
-			// page
+			products: items,
 		})
-		// console.log(response.data.docs);
-	};
+	}
 
 	render() {
+		const { products } = this.state;
+
 		return (
 			<form id="auto-search" action="/busca" method="get">
 				<div className="input-group">
 					<input type="text" placeholder="Explore nossos universos" />
 					<button className="search-button">Buscar</button>
 
-					<div className="product-list">
-						<h1>{this.products}</h1>
-					</div>
-				
+					<ul className="product-list">
+						{products.map(p => (
+							<li key={p.map.id}>
+								<a href={`https://store.omelete.com.br/${p.map.uri}`}>
+									<span className="product-image">
+										<img data-value="itemimage" src={`https://static-store.worldticket.com.br/${p.map['images.url'][0]}`} />
+									</span>
+									<span className="product-name">
+										{p.map.name}
+									</span>
+								</a>
+
+								{/* <p>{product.description}</p> */}
+								{/* <Link to={`/products/${product._id}`}>Acessar</Link> */}
+							</li>
+						))}
+					</ul>				
 				</div>
 			</form>
 			
