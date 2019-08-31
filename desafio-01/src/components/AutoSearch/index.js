@@ -6,32 +6,40 @@ export default class AutoSearch extends Component {
 
 	state = {
 		products: [],
+		searchquery: '',
 	}
 
-	componentDidMount(){
-		this.loadProducts();
-	}
-
-	loadProducts = async (text = 'can') => {
-		
-		const response = await api.get(`/autocomplete/${text}`);
-		const { items } = response.data;
-		console.log(items);
-		// const { docs, ...productInfo } = response.data;
-		
+	changeQuery = (e) => {
 		this.setState({
-			products: items,
-		})
+			searchquery: e.target.value,
+		});
+	}
+
+	loadProducts = async (e) => {
+		e.preventDefault();
+
+		const text = this.state.searchquery;
+		if ( text.length >= 3 ) {
+			const response = await api.get(`/autocomplete/${text}`);
+			const { items } = response.data;
+			this.setState({
+				products: items,
+			})
+		} else {
+			this.setState({
+				products: [],
+			})
+		}
 	}
 
 	render() {
-		const { products } = this.state;
+		const { products, searchquery } = this.state;
 
 		return (
 			<form id="auto-search" action="/busca" method="get">
 				<div className="input-group">
-					<input type="text" placeholder="Explore nossos universos" />
-					<button className="search-button">Buscar</button>
+					<input type="text" value={searchquery} onChange={this.changeQuery} placeholder="Explore nossos universos" />
+					<button type="submit" onClick={this.loadProducts} className="search-button">Buscar</button>
 
 					<ul className="product-list">
 						{products.map(p => (
@@ -40,32 +48,20 @@ export default class AutoSearch extends Component {
 									<span className="product-image">
 										<img data-value="itemimage" src={`https://static-store.worldticket.com.br/${p.map['images.url'][0]}`} />
 									</span>
-									<span className="product-name">
-										{p.map.name}
+									<span className="product-info">
+										<span className="product-name">
+											{p.map.name}
+										</span>
+										<span className="product-price">
+											{(p.map.salePrice).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+										</span>
 									</span>
 								</a>
-
-								{/* <p>{product.description}</p> */}
-								{/* <Link to={`/products/${product._id}`}>Acessar</Link> */}
 							</li>
 						))}
 					</ul>				
 				</div>
 			</form>
-			
-			// <ul class="search-result-list">
-			// 	<li>
-			// 		<a data-value="item" href="/camiseta-rabo-corneo-hungaro-f" class="search-result-item">
-			// 			<span class="product-image">
-			// 				<img data-value="itemimage" src="https://static-store.worldticket.com.br/store/images/721/29721.png" alt="">
-			// 			</span>
-			// 			<span class="product-name">
-			// 				<span data-value="itemname">Camiseta Rabo-Córneo Hungaro</span>
-			// 				<span class="itemprice" data-value="itemprice">R$ 59,90</span>
-			// 			</span>
-			// 		</a>
-			// 	</li>
-			// </ul>
 		);
 	}
 

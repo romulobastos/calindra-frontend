@@ -17,46 +17,6 @@ form#auto-search {
 	-o-border-radius: 50px;
 	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1);
 }
-
-ul.product-list {
-	position: absolute;
-	background: #fff;
-	top: 100%;
-	left: 5%;
-	width: 90%;
-	height: auto;
-	margin-top: 2px;
-	margin-bottom: 30px;
-	list-style: none;
-	text-align: left;
-}
-ul.product-list li {
-	color: #666;
-	font-weight: normal;
-	font-size: 1.4rem;
-	transition: all .6s;
-	-webkit-transition: all .6s;
-	-moz-transition: all .6s;
-	-ms-transition: all .6s;
-	-o-transition: all .6s;
-}
-ul.product-list li a {
-	padding: 10px;
-	border-bottom: 1px solid #ddd;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	text-decoration: none;
-}
-ul.product-list li .product-image img {
-	width: 50px;
-	height: 50px;
-}
-ul.product-list li .product-name {
-	color: #666;
-	margin-left: 10px;	
-}
-
 input[type="text"] {
 	background: #fff;
 	color: #666;
@@ -100,4 +60,59 @@ button.search-button {
 	-moz-transition: all 0.6s;
 	-ms-transition: all 0.6s;
 	-o-transition: all 0.6s;
+}
+
+/* lista de produtos */
+ul.product-list {
+	position: absolute;
+	background: #fff;
+	top: 100%;
+	left: 5%;
+	width: 90%;
+	height: auto;
+	margin-top: 2px;
+	margin-bottom: 30px;
+	list-style: none;
+	text-align: left;
+}
+ul.product-list li {
+	color: #666;
+	font-weight: normal;
+	font-size: 1.4rem;
+	transition: all .6s;
+	-webkit-transition: all .6s;
+	-moz-transition: all .6s;
+	-ms-transition: all .6s;
+	-o-transition: all .6s;
+}
+ul.product-list li a {
+	padding: 10px;
+	border-bottom: 1px solid #fed;
+	display: flex;
+	flex-direction: row;
+	align-items: top;
+	text-decoration: none;
+}
+ul.product-list li a:hover {
+	background: #fff6f0;
+}
+ul.product-list li .product-image img {
+	width: 50px;
+	height: 50px;
+}
+ul.product-list li .product-info {
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+}
+ul.product-list li .product-info .product-name {
+	color: #888;
+	font-weight: bold;
+	margin-top: 5px;
+}
+ul.product-list li .product-info .product-price {
+	color: #eead00;
+	font-weight: bold;
+	font-size: 1.6rem;
+	margin-top: 2px;
 }
